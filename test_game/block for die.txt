@@ -1,0 +1,24 @@
+if (player.GetPosition().x >= 1950 && player.GetPosition().x <= 2300) //block for die1
+		{
+			if (bfd1.GetCollider().CheckCollision(playerCollision, direction, 0.0f))
+			{
+				blocklonghon1 = false;
+				
+			}
+		}
+		if (blocklonghon1 == false) 
+		{ 
+			if (player.GetPosition().y >= 230 && player.GetPosition().x >= 1950 && player.GetPosition().x <= 2200)
+			{
+				platformlonghon1.push_back(Platform(nullptr, sf::Vector2f(250.0f, 50.0f), sf::Vector2f(2050.0f, 100.0f)));
+			}
+			
+		}
+		else clock1.restart();
+		for (Platform& p : platformlonghon1)
+			if(p.GetCollider().CheckCollision(playerCollision, direction, 1.0f))
+				player.OnCollision(direction);
+
+
+for (Platform& p : platformlonghon1)
+		p.Draw(window);

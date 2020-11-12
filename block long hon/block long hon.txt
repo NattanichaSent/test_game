@@ -1,0 +1,17 @@
+printf("time = %.f", time);
+		if (player.GetPosition().x >= 1950 && player.GetPosition().y >= 50)
+		{
+			if (Ex2.GetCollider().CheckCollision(playerCollision, direction, 0.0f))
+			{
+				blocklonghon = false;
+			}
+		}
+		if (blocklonghon == false) {
+			if(time > 1000)
+			platformlonghon.push_back(Platform(nullptr, sf::Vector2f(50.0f, 50.0f), sf::Vector2f(1950.0f, 100.0f)));
+			blocklonghon = true;
+		}
+		else clock1.restart();
+		for (Platform& p : platformlonghon)
+			if(p.GetCollider().CheckCollision(playerCollision, direction, 1.0f))
+				player.OnCollision(direction);

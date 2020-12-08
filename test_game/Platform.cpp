@@ -12,6 +12,10 @@ Platform::~Platform()
 {
 
 }
+void Platform::Texture(sf::Texture* texture)
+{
+	body.setTexture(texture);
+}
 void Platform::Draw(sf::RenderWindow& window)
 {
 	window.draw(body);

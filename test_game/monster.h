@@ -6,12 +6,13 @@
 class Monster
 {
 public:
-	Monster(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed,sf::Vector2f position);
+	Monster(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed,sf::Vector2f size,sf::Vector2f position,int hp);
 	~Monster();
 
 	void Update(float deltaTime);
 	void Draw(sf::RenderWindow& window);
 	void OnCollision(sf::Vector2f direction);
+	void OnCollisionX(sf::Vector2f direction);
 	void SetPosition(sf::Vector2f(position))
 	{
 		monster.setPosition(position);
@@ -19,7 +20,7 @@ public:
 	sf::Vector2f GetPosition() { return	monster.getPosition(); }
 	Collider GetCollider() { return Collider(monster); }
 	float GetSpeed() { return speed; }
-
+	int hp;
 private:
 	sf::RectangleShape monster;
 	Animation animation;

@@ -13,16 +13,20 @@ public:
 	void OnCollision(sf::Vector2f direction);
 	sf::Vector2f GetPosition() { return	player.getPosition(); }
 	Collider GetCollider() { return Collider(player); }
+	void SetPosition(sf::Vector2f(position)) { player.setPosition(position); }
 	float GetSpeed() { return speed; }
+	sf::RectangleShape player;
+	bool faceRight;
+	int dmg;
 
 private:
-	sf::RectangleShape player;
+	
 	Animation animation;
 	unsigned int row;
-	float speed = 20;
-	float maxSpeed = 400;
-	float drag = 0.995;
-	bool faceRight;
+	float speed = 6;
+	float maxSpeed = 200;
+	float drag = 0.993;
+	
 
 	sf::Vector2f velocity;
 	bool canJump;

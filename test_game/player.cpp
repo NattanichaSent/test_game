@@ -6,9 +6,9 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 {
 	this->jumpHeight = jumpHeight;
 	row = 0;
+	dmg = 50;
 	faceRight = true;
-
-	player.setSize(sf::Vector2f(50.0f, 55.0f));
+	player.setSize(sf::Vector2f(50.0f, 60.0f));
 	player.setOrigin(player.getSize() / 2.0f);
 	player.setPosition(-150.0f, 0.0f);
 	player.setTexture(texture);
@@ -25,6 +25,7 @@ void Player::Update(float deltaTime)
 	row = 0;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
+		
 		velocity.x -= speed;
 		row = 1;
 		faceRight = 0;
@@ -35,15 +36,15 @@ void Player::Update(float deltaTime)
 		row = 1;
 		faceRight = 1;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) && sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) && sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		velocity.x -= speed * 2;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) && sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		velocity.x += speed * 2;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump)
+	}*/
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && canJump)
 	{
 		canJump = false;
 		velocity.y = -sqrt(1.25f * 981.0f * jumpHeight);
